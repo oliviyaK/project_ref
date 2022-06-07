@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -32,12 +34,12 @@ public class Client implements Serializable {
     @Column(name = "phone_number", nullable = false)
     private String phone;
 
-    @Column(name = "clients_comment", nullable =true)
+    @Column(name = "client_comment", nullable =true)
     private String comment;
 
     @OneToMany(mappedBy = "client")
     @ToString.Exclude
     @Builder.Default
-    private List<Request> requestList = new ArrayList<>();
+    private List<Request> requestList= new ArrayList<>();
 
 }

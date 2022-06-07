@@ -1,87 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
-
-    <changeSet id="1" author="Oliviya Kustova">
-        <comment>create table clients</comment>
-        <sql>
-            create table clients
-            (
-                id              int auto_increment
-                    primary key,
-                address         varchar(255) not null,
-                clients_comment varchar(255) null,
-                name            varchar(255) not null,
-                phone_number    varchar(255) not null,
-                surname         varchar(255) null
-            );
-        </sql>
-    </changeSet>
-
-
-    <changeSet id="2" author="Oliviya Kustova">
-        <comment>create table operations</comment>
-        <sql>
-            create table requests
-            (
-                id                int auto_increment
-                    primary key,
-                operation_comment varchar(255) null,
-                date              varchar(255) not null,
-                type_of_operation varchar(255) not null,
-                client_id         int null,
-                constraint FKljmj9fpy346ea5hejj9ej6x6o
-                    foreign key (client_id) references clients (id)
-            );
-        </sql>
-    </changeSet>
-
-    <changeSet id="3" author="Oliviya Kustova">
-        <comment>create table refrigerator_models</comment>
-        <sql>
-            create table operations
-            (
-                id              int auto_increment
-                    primary key,
-                final_comment   varchar(255) null,
-                complete_date   varchar(255) not null,
-                final_operation varchar(255) null,
-                request_id      int null,
-                constraint FKljuk8uwlce892df3l4i0taf8a
-                    foreign key (request_id) references requests (id)
-            );
-        </sql>
-    </changeSet>
-
-    <changeSet id="4" author="Oliviya Kustova">
-        <comment>create table repair_details</comment>
-        <sql>
-            create table refrigerator_models
-            (
-                id                   int auto_increment
-                    primary key,
-                refrigerator_brand   varchar(255) not null,
-                refrigerator_comment varchar(255) null,
-                brand_model          varchar(255) null
-            );
-        </sql>
-    </changeSet>
-
-    <changeSet id="5" author="Oliviya Kustova">
-        <comment>create table requests</comment>
-        <sql>
-            create table repair_details
-            (
-                id              int auto_increment
-                    primary key,
-                detail_name     varchar(255) not null,
-                detail_price    int          not null,
-                refrigerator_id int null,
-                constraint FKc3ascgx889udtwuqx9vnr9wuk
-                    foreign key (refrigerator_id) references refrigerator_models (id)
-            );
-        </sql>
-    </changeSet>
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <include file="src/main/resources/liquibase/1.0/changelogDatabaseCreate.xml"/>
+    <include file="src/main/resources/liquibase/1.0/changelogData.xml"/>
 </databaseChangeLog>

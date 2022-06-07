@@ -40,7 +40,6 @@ public class Utils {
         return Request.builder()
                 .date(REQUEST_DATE_1)
                 .requestType(REQUEST_TYPE_1)
-                .comment(REQUEST_COMMENT_1)
                 .build();
     }
 }

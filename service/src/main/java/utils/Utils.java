@@ -9,7 +9,6 @@ public class Utils {
         return Request.builder()
                 .date(REQUEST_DATE_1)
                 .requestType(REQUEST_TYPE_1)
-                .comment(REQUEST_COMMENT_1)
                 .build();
     }
 
@@ -17,7 +16,6 @@ public class Utils {
         return Request.builder()
                 .date(REQUEST_DATE_2)
                 .requestType(REQUEST_TYPE_2)
-                .comment(null)
                 .build();
     }
 
@@ -25,7 +23,6 @@ public class Utils {
         return Request.builder()
                 .date(REQUEST_DATE_3)
                 .requestType(REQUEST_TYPE_3)
-                .comment(null)
                 .build();
     }
 
@@ -111,6 +108,4 @@ public class Utils {
                 .model(REFRIGERATOR_MODEL_3)
                 .build();
     }
-
-
 }

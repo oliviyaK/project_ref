@@ -2,14 +2,22 @@ import refrigerator.dao.*;
 import refrigerator.entity.*;
 import refrigerator.util.HibernateUtil;
 
+import java.util.List;
+import java.util.Set;
+
 import static utils.Utils.*;
 
 
 public class Manager {
     public static void main(String[] args) {
+        EntityDaoImplRefrigerator daoImplRefrigerator = new EntityDaoImplRefrigerator();
         Refrigerator refrigerator1 = createRefrigerator1();
         Refrigerator refrigerator2 = createRefrigerator2();
         Refrigerator refrigerator3 = createRefrigerator3();
+        daoImplRefrigerator.insert(refrigerator1);
+        daoImplRefrigerator.insert(refrigerator2);
+        daoImplRefrigerator.insert(refrigerator3);
+
 
         Detail detail1 = createDetail1();
         Detail detail2 = createDetail2();
@@ -35,12 +43,14 @@ public class Manager {
         daoImplRequest.insert(request2);
         daoImplRequest.insert(request3);
 
+        request1.setRefrigerators(Set.of(daoImplRefrigerator.selectById(1), daoImplRefrigerator.selectById(2)));
         request1.setClient(daoImplClient.selectById(1));
         daoImplRequest.update(request1);
         request2.setClient(daoImplClient.selectById(1));
         daoImplRequest.update(request2);
         request3.setClient(daoImplClient.selectById(2));
         daoImplRequest.update(request3);
+
 
         EntityDaoImplOperation daoImplOperation = new EntityDaoImplOperation();
         daoImplOperation.insert(operation1);
@@ -60,10 +70,6 @@ public class Manager {
         daoImplDetail.insert(detail2);
         daoImplDetail.insert(detail3);
 
-        EntityDaoImplRefrigerator daoImplRefrigerator = new EntityDaoImplRefrigerator();
-        daoImplRefrigerator.insert(refrigerator1);
-        daoImplRefrigerator.insert(refrigerator2);
-        daoImplRefrigerator.insert(refrigerator3);
 
         detail1.setRefrigerator(daoImplRefrigerator.selectById(1));
         daoImplDetail.update(detail1);

@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -24,14 +27,21 @@ public class Request implements Serializable {
     @Column(name = "type_of_request", nullable = false)
     private String requestType;
 
-    @Column(name = "request_comment", nullable = true)
-    private String comment;
-
     @OneToOne(mappedBy = "request")
     private Operation operation;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     @ToString.Exclude
     private Client client;
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(name = "request_refrigerator",
+            joinColumns = {@JoinColumn(name = "id_request")},
+            inverseJoinColumns = {@JoinColumn(name = "id_refrigerator")}
+    )
+    @Builder.Default
+    private Set<Refrigerator> refrigerators = new HashSet<>();
+
+
 }

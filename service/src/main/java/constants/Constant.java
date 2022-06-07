@@ -1,11 +1,31 @@
 package constants;
 
 public class Constant {
-
+    public static final String ADD = "add";
+    public static final String DELETE = "delete";
+    public static final String SEARCH = "search";
+    public static final String UPDATE = "update";
+    public static final String ID = "id";
+    public static final String NAME = "name";
+    public static final String SURNAME = "surname";
+    public static final String ADDRESS = "address";
+    public static final String PHONE = "phone";
+    public static final String COMMENT = "comment";
+    public static final String CLIENT = "client";
+    public static final String CLIENT_JSP ="client.jsp";
+    public static final String ACTION = "action";
+    public static final String REQUESTS = "requests";
+    public static final String DATE = "date";
+    public static final String REQUEST_TYPE = "requestType";
+    public static final String REQUEST_JSP = "/request.jsp";
+    public static final String OPERATION = "operation";
+    public static final String SEARCH_JSP ="search.jsp";
+    public static final String OPERATOR_LIST ="operatorList";
+    public static final String ADMIN_JSP ="/admin/admin.jsp";
+    public static final String OPERATOR_JSP = "/operator.jsp";
     public static final String REFRIGERATOR_BRAND_1 = "Samsung";
     public static final String REFRIGERATOR_BRAND_2 = "LG";
     public static final String REFRIGERATOR_BRAND_3 = "Bosh";
-
     public static final String REFRIGERATOR_MODEL_1 = "RB33A3440SA/WT";
     public static final String REFRIGERATOR_MODEL_2 = "GC-L257CBEC";
     public static final String REFRIGERATOR_MODEL_3 = "KIR81AF20R";
@@ -17,6 +37,8 @@ public class Constant {
     public static final String DETAIL_PRICE_1 = "35 BYN";
     public static final String DETAIL_PRICE_2 = "65 BYN";
     public static final String DETAIL_PRICE_3 = "25 BYN";
+
+
 
     public static final String CLIENT_NAME_1 = "Ivan";
     public static final String CLIENT_NAME_2 = "Alina";
@@ -51,5 +73,8 @@ public class Constant {
     public static final String OPERATION_DATE_3 = "01.03.2003";
 
     public static final String OPERATION_COMMENT_2 = "+ next time: Thermostat replacement";
+    public static final String DEFAULT_CHARACTER_ENCODING = "UTF-8";
+    public static final String CLIENTS = "clients";
+    public static final String REQUEST = "request";
 
 }

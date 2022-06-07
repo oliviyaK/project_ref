@@ -18,10 +18,10 @@ public class Detail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "detail_name", nullable = false)
+    @Column(name = "part_name", nullable = false)
     private String name;
 
-    @Column(name = "detail_price", nullable = false)
+    @Column(name = "part_price", nullable = false)
     private String price;
 
     @ManyToOne(cascade = CascadeType.MERGE)

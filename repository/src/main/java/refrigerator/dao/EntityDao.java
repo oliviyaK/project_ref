@@ -15,5 +15,6 @@ public interface EntityDao {
     List select();
 
     <T> T selectById(Integer id);
+    void closeDao();
 }
 

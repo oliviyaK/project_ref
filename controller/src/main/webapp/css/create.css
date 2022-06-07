@@ -1,0 +1,24 @@
+.d11 h2 {
+    display: table;
+    width: auto;
+    margin: 0 auto;
+    padding: 15px;
+    letter-spacing: 2px;
+    background: #cbdcea;
+    border: 2px dashed white;
+    color: white;
+    box-shadow: 0 0 0 4px #cbdcea;
+}
+
+.d12 h2 {
+    display: table;
+    width: auto;
+    margin: 0 auto;
+    padding: 25px;
+    letter-spacing: 2px;
+    /*background: #ADC0CE;*/
+    border: #29838C;
+    color: white;
+    box-shadow: 0 0 0 4px #cbdcea;
+}
+

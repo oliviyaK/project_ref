@@ -24,6 +24,9 @@ public class Operation implements Serializable {
     @Column(name = "final_comment")
     private String comment;
 
+    @Column(name = "operation_price")
+    private String operationPrice;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "request_id")
     @ToString.Exclude

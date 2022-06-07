@@ -5,7 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -34,4 +37,8 @@ public class Refrigerator implements Serializable {
     @Builder.Default
     private List<Detail> detailList = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "refrigerators", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @Builder.Default
+    private List<Request> requests = new ArrayList<>();
 }

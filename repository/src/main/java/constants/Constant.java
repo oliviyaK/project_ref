@@ -51,4 +51,5 @@ public class Constant {
     public static final String OPERATION_DATE_3 = "01.03.2003";
 
     public static final String OPERATION_COMMENT_2 = "+ next time: Thermostat replacement";
+
 }
