@@ -1,5 +1,7 @@
 package servlet;
 
+import DTO.ClientDTO;
+import DTO.RequestDTO;
 import management.implementation.OperatorServiceImpl;
 import refrigerator.entity.Client;
 import refrigerator.entity.Request;
@@ -17,7 +19,6 @@ import static constants.Constant.*;
 
 @WebServlet(name = "RequestServlet", value = "/request")
 public class RequestServlet extends HttpServlet {
-    
     private final OperatorServiceImpl operatorService = new OperatorServiceImpl();
 
     @Override
@@ -32,7 +33,7 @@ public class RequestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String action = req.getParameter(ACTION);
-        List<Client> clientList = operatorService.findAllClients();
+        List<ClientDTO> clientList = operatorService.findAllClients();
         req.setAttribute(CLIENTS,clientList);
         switch (action) {
             case ADD:
@@ -41,13 +42,13 @@ public class RequestServlet extends HttpServlet {
             case DELETE:
                 deleteRequest(req, resp);
                 break;
-            case SEARCH:
-                searchRequest(req, resp);
-                break;
+//            case SEARCH:
+//                searchRequest(req, resp);
+//                break;
             case UPDATE:
                 updateRequest(req, resp);
                 break;
-            case "addRequestToClient":
+            case ADD_REQUEST_TO_CLIENT:
                 addRequestToClient(req, resp);
                 break;
         }
@@ -59,13 +60,13 @@ public class RequestServlet extends HttpServlet {
         operatorService.addRequest(date, requestType);
         resp.sendRedirect(REQUEST);
     }
-    private void searchRequest(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter(ID));
-        Request request = operatorService.searchInRequests(id);
-        req.setAttribute(REQUEST, request);
-        req.getRequestDispatcher(SEARCH_JSP).forward(req, resp);
-    }
+//    private void searchRequest(HttpServletRequest req, HttpServletResponse resp)
+//            throws ServletException, IOException {
+//        int id = Integer.parseInt(req.getParameter(ID));
+//        Request request = operatorService.searchInRequests(id);
+//        req.setAttribute(REQUEST, request);
+//        req.getRequestDispatcher(SEARCH_JSP).forward(req, resp);
+//    }
     private void deleteRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter(ID));

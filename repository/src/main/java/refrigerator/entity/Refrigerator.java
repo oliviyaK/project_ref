@@ -5,9 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @EqualsAndHashCode
 @Getter
@@ -17,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "refrigerator_models")
+@Table(name = "refrigerators")
 public class Refrigerator implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +35,8 @@ public class Refrigerator implements Serializable {
     @Builder.Default
     private List<Detail> detailList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "refrigerators", fetch = FetchType.EAGER)
+    @ManyToMany (mappedBy = "refrigerator", fetch = FetchType.EAGER)
     @ToString.Exclude
     @Builder.Default
-    private List<Request> requests = new ArrayList<>();
+    private List<Request> request = new ArrayList<>();
 }

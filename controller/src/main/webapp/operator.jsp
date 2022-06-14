@@ -28,31 +28,31 @@
     <li><a class="floating-button" href="client">Clients<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
             <li><a href="clientForm.jsp">Create a client</a></li>
-            <li><a href="client">Update a client</a></li>
+
         </ul>
     </li>
     <li><a class="floating-button" href="request">Requests<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
             <li><a href="requestForm.jsp">Create a request</a></li>
-            <li><a href="request">Update a request</a></li>
+
         </ul>
     </li>
     <li><a class="floating-button" href="operation">Operations<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
             <li><a href="operationForm.jsp">Create operation</a></li>
-            <li><a href="operation">Update operation</a></li>
+
         </ul>
     </li>
     <li><a class="floating-button" href="refrigerator">Refrigerators<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
             <li><a href="refrigeratorForm.jsp">Create refrigerator</a></li>
-            <li><a href="refrigerator">Update refrigerator</a></li>
+
         </ul>
     </li>
     <li><a class="floating-button" href="detail">Parts<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
             <li><a href="detailForm.jsp">Create a part</a></li>
-            <li><a href="detail">Update a part</a></li>
+
         </ul>
     </li>
 

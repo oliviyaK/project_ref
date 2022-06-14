@@ -2,7 +2,6 @@ import refrigerator.dao.*;
 import refrigerator.entity.*;
 import refrigerator.util.HibernateUtil;
 
-import java.util.List;
 import java.util.Set;
 
 import static utils.Utils.*;
@@ -43,7 +42,7 @@ public class Manager {
         daoImplRequest.insert(request2);
         daoImplRequest.insert(request3);
 
-        request1.setRefrigerators(Set.of(daoImplRefrigerator.selectById(1), daoImplRefrigerator.selectById(2)));
+        request1.setRefrigerator(Set.of(daoImplRefrigerator.selectById(1), daoImplRefrigerator.selectById(2)));
         request1.setClient(daoImplClient.selectById(1));
         daoImplRequest.update(request1);
         request2.setClient(daoImplClient.selectById(1));

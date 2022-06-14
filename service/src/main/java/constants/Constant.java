@@ -1,6 +1,8 @@
 package constants;
 
 public class Constant {
+
+    public static final String ADD_REQUEST_TO_CLIENT = "addRequestToClient";
     public static final String ADD = "add";
     public static final String DELETE = "delete";
     public static final String SEARCH = "search";
@@ -29,6 +31,13 @@ public class Constant {
     public static final String REFRIGERATOR_MODEL_1 = "RB33A3440SA/WT";
     public static final String REFRIGERATOR_MODEL_2 = "GC-L257CBEC";
     public static final String REFRIGERATOR_MODEL_3 = "KIR81AF20R";
+    public static final String REFRIGERATORS = "refrigerators";
+    public static final String REFRIGERATOR = "refrigerator";
+    public static final String REFRIGERATOR_JSP = "refrigerator.jsp";
+    public static final String ADD_REFRIGERATORS_TO_REQUEST = "addRefrigeratorsToRequest";
+    public static final String REFRIGERATOR_COMMENT_1 = "new model";
+    public static final String BRAND = "brand";
+    public static final String MODEL = "model";
 
     public static final String DETAIL_NAME_1 = "Defrost sensor KSD-2003 (12/-5°C; +72°)";
     public static final String DETAIL_NAME_2 = "DOOR HANDLE FOR LG REFRIGERATORS GC-L257CBEC";
@@ -37,6 +46,11 @@ public class Constant {
     public static final String DETAIL_PRICE_1 = "35 BYN";
     public static final String DETAIL_PRICE_2 = "65 BYN";
     public static final String DETAIL_PRICE_3 = "25 BYN";
+    public static final String PARTS = "parts";
+    public static final String PART_JSP = "part.jsp";
+    public static final String ADD_PART_TO_REFRIGERATOR = "addPartToRefrigerator";
+    public static final String PRICE = "price";
+    public static final String PART = "part";
 
 
 

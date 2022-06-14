@@ -31,7 +31,7 @@
     </changeSet>
     <changeSet id="4" author="Oliviya Kustova" context="test">
         <sql>
-            insert into refrigerator_models(refrigerator_brand, brand_model, refrigerator_comment)
+            insert into refrigerators(refrigerator_brand, brand_model, refrigerator_comment)
             values ('Samsung', 'RB33A3440SA/WT', 'no longer produced'),
                    ('LG', 'GC-L257CBEC', 'new model'),
                    ('Bosh', 'KIR81AF20R', '-')
@@ -39,7 +39,7 @@
     </changeSet>
     <changeSet id="5" author="Oliviya Kustova" context="test">
         <sql>
-            insert into repair_details(part_name, part_price)
+            insert into parts(part_name, part_price)
             values ('Defrost sensor KSD-2003 (12/-5°C; +72°)', '35 BYN'),
                    ('DOOR HANDLE FOR LG REFRIGERATORS GC-L257CBEC', '65 BYN'),
                    ('EGG STAND FOR REFRIGERATORS BOSCH KIR81AF20R', '25 BYN')

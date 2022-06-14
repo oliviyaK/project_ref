@@ -1,10 +1,12 @@
 package management.implementation;
 
+import DTO.ClientDTO;
 import management.interfaces.OperatorService;
 import refrigerator.dao.*;
 import refrigerator.entity.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OperatorServiceImpl implements OperatorService {
     private final EntityDaoImplClient daoImplClient = new EntityDaoImplClient();
@@ -23,12 +25,12 @@ public class OperatorServiceImpl implements OperatorService {
         daoImplRefrigerator.insert(refrigerator);
         daoImplRefrigerator.closeDao();
         return refrigerator;
-
     }
 
     @Override
     public void updateRefrigerator(int id, String brand, String model, String comment) {
         Refrigerator refrigerator = Refrigerator.builder()
+                .id(id)
                 .brand(brand)
                 .model(model)
                 .comment(comment)
@@ -58,6 +60,19 @@ public class OperatorServiceImpl implements OperatorService {
     }
 
     @Override
+    public void addRefrigeratorsToRequest(int id, String brand, String model, String comment) {
+        Request request = daoImplRequest.selectById(id);
+        Refrigerator refrigerator = Refrigerator.builder()
+                .brand(brand)
+                .model(model)
+                .comment(comment)
+                .build();
+request.getRefrigerator().add(refrigerator);
+  daoImplRequest.update(request);
+        daoImplRequest.closeDao();
+    }
+
+    @Override
     public Detail addDetail(String name, String price) {
         Detail detail = Detail.builder()
                 .name(name)
@@ -69,8 +84,9 @@ public class OperatorServiceImpl implements OperatorService {
     }
 
     @Override
-    public void updateDetail(String name, String price) {
+    public void updateDetail(int id, String name, String price) {
         Detail detail = Detail.builder()
+                .id(id)
                 .name(name)
                 .price(price)
                 .build();
@@ -96,6 +112,20 @@ public class OperatorServiceImpl implements OperatorService {
         Detail detail = daoImplDetail.selectById(id);
         daoImplDetail.closeDao();
         return detail;
+    }
+
+    @Override
+    public void addPartToRefrigerator(int id, String name, String price) {
+        Refrigerator refrigerator = daoImplRefrigerator.selectById(id);
+        Detail part = Detail.builder()
+                .name(name)
+                .price(price)
+                .build();
+        daoImplDetail.insert(part);
+        part.setRefrigerator(daoImplRefrigerator.selectById(id));
+        daoImplDetail.update(part);
+        daoImplDetail.closeDao();
+        daoImplRefrigerator.closeDao();
     }
 
     @Override
@@ -131,13 +161,16 @@ public class OperatorServiceImpl implements OperatorService {
         List<Request> select = daoImplRequest.select();
         daoImplRequest.closeDao();
         return select;
-    }
 
-    @Override
-    public Request searchInRequests(int id) {
-        Request request = daoImplClient.searchInRequests(id);
-        daoImplClient.closeDao();
-        return request;
+//        List<RequestDTO> requestDTOS = select.stream().map(request -> RequestDTO.builder()
+//                        .id(request.getId())
+//                        .date(request.getDate())
+//                        .requestType(request.getRequestType())
+//                        .refrigerator(request.getRefrigerator().toString())
+//                        .build())
+//                .collect(Collectors.toList());
+//        daoImplRequest.closeDao();
+//        return requestDTOS;
     }
 
     @Override
@@ -150,8 +183,6 @@ public class OperatorServiceImpl implements OperatorService {
                 .build();
         daoImplRequest.insert(request);
         request.setClient(daoImplClient.selectById(id));
-//        client.getRequestList().add(request);
-//        daoImplClient.update(client);
         daoImplRequest.update(request);
         daoImplRequest.closeDao();
         daoImplClient.closeDao();
@@ -226,10 +257,20 @@ public class OperatorServiceImpl implements OperatorService {
     }
 
     @Override
-    public List<Client> findAllClients() {
+    public List<ClientDTO> findAllClients() {
         List<Client> select = daoImplClient.select();
+        List<ClientDTO> clientDTOS = select.stream().map(client -> ClientDTO.builder()
+                        .id(client.getId())
+                        .name(client.getName())
+                        .surname(client.getSurname())
+                        .phone(client.getPhone())
+                        .address(client.getAddress())
+                        .comment(client.getComment())
+                        .requestOfClient(client.getRequestOfClient().toString())
+                        .build())
+                .collect(Collectors.toList());
         daoImplClient.closeDao();
-        return select;
+        return clientDTOS;
     }
 
     @Override

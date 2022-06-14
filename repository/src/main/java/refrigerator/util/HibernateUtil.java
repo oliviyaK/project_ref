@@ -5,7 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class HibernateUtil {
-
     public static final String PERSISTENCE_UNIT_NAME = "project_ref";
 
     /**

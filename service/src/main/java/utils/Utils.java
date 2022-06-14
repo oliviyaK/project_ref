@@ -92,6 +92,7 @@ public class Utils {
         return Refrigerator.builder()
                 .brand(REFRIGERATOR_BRAND_1)
                 .model(REFRIGERATOR_MODEL_1)
+                .comment(REFRIGERATOR_COMMENT_1)
                 .build();
     }
 

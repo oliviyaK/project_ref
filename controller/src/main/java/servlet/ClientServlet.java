@@ -1,6 +1,7 @@
 package servlet;
 
 import DTO.ClientDTO;
+import DTO.RequestDTO;
 import management.implementation.OperatorServiceImpl;
 import refrigerator.entity.Client;
 import refrigerator.entity.Request;
@@ -17,13 +18,11 @@ import java.util.List;
 import static constants.Constant.*;
 @WebServlet(name = "ClientServlet", value = "/client")
 public class ClientServlet extends HttpServlet {
-    public static final String ADD_REQUEST = "addRequest";
     private final OperatorServiceImpl clientService = new OperatorServiceImpl();
-    private final OperatorServiceImpl requestService = new OperatorServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Client> clientList = clientService.findAllClients();
+        List<ClientDTO> clientList = clientService.findAllClients();
         req.setAttribute(CLIENTS, clientList);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(CLIENT_JSP);
         requestDispatcher.forward(req, resp);
@@ -33,7 +32,7 @@ public class ClientServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String action = req.getParameter(ACTION);
-        List<Request> requestList = requestService.findAllRequests();
+        List<Request> requestList = clientService.findAllRequests();
         req.setAttribute(REQUESTS,requestList);
         switch (action) {
             case ADD:
@@ -41,9 +40,6 @@ public class ClientServlet extends HttpServlet {
                 break;
             case DELETE:
                 deleteClient(req, resp);
-                break;
-            case SEARCH:
-                searchClient(req, resp);
                 break;
             case UPDATE:
                 updateClient(req, resp);
@@ -53,7 +49,7 @@ public class ClientServlet extends HttpServlet {
     }
 
     private void saveClient(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         String name = req.getParameter(NAME);
         String surname = req.getParameter(SURNAME);
         String address = req.getParameter(ADDRESS);
@@ -63,23 +59,15 @@ public class ClientServlet extends HttpServlet {
         resp.sendRedirect(CLIENT);
     }
 
-    private void searchClient(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter(ID));
-        Request request = clientService.searchInRequests(id);
-        req.setAttribute(REQUEST, request);
-        req.getRequestDispatcher(SEARCH_JSP).forward(req, resp);
-    }
-
     private void deleteClient(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         clientService.deleteClientsById(id);
         resp.sendRedirect(CLIENT);
     }
 
     private void updateClient(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         String name = req.getParameter(NAME);
         String surname = req.getParameter(SURNAME);

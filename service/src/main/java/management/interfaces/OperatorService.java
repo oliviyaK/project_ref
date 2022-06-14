@@ -1,5 +1,6 @@
 package management.interfaces;
 
+import DTO.ClientDTO;
 import refrigerator.entity.*;
 
 import java.util.List;
@@ -17,9 +18,11 @@ public interface OperatorService {
 
     Refrigerator findRefrigeratorById(int id);
 
+    void addRefrigeratorsToRequest(int id, String brand, String model, String comment);
+
     Detail addDetail(String name, String price);
 
-    void updateDetail(String name, String price);
+    void updateDetail(int id,String name, String price);
 
     void deleteDetail(Integer id);
 
@@ -27,13 +30,15 @@ public interface OperatorService {
 
     Detail findDetailById(int id);
 
+    void addPartToRefrigerator(int id, String name, String price);
+
     Client clientCreation(String name, String surname, String address, String phone, String comment);
 
     void updateClient(int id, String name, String surname, String address, String phone, String comment);
 
     void deleteClientsById(int id);
 
-    List<Client> findAllClients();
+    List<ClientDTO> findAllClients();
 
     Client findClientById(int id);
 
@@ -45,7 +50,7 @@ public interface OperatorService {
 
     List<Request> findAllRequests();
 
-    Request searchInRequests(int id);
+//    Request searchInRequests(int id);
 
     void addRequestToClient (int id, String date, String requestType);
 

@@ -62,7 +62,7 @@
 
     <changeSet id="4" author="Oliviya Kustova">
         <sql>
-            create table refrigerator_models
+            create table refrigerators
             (
                 id                   int auto_increment
                     primary key,
@@ -72,13 +72,13 @@
             );
         </sql>
         <rollback>
-            drop table refrigerator_models
+            drop table refrigerators
         </rollback>
     </changeSet>
 
     <changeSet id="5" author="Oliviya Kustova">
         <sql>
-            create table repair_details
+            create table parts
             (
                 id              int auto_increment
                     primary key,
@@ -86,11 +86,11 @@
                 part_price      varchar(255) null,
                 refrigerator_id int null,
                 constraint FKc3ascgx889udtwuqx9vnr9wuk
-                    foreign key (refrigerator_id) references refrigerator_models (id)
+                    foreign key (refrigerator_id) references refrigerators (id)
             );
         </sql>
         <rollback>
-            drop table repair_details
+            drop table parts
         </rollback>
     </changeSet>
 </databaseChangeLog>

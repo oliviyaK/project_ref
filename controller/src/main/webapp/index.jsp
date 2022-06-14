@@ -15,7 +15,6 @@
     }
 </style>
 <body>
-<h2>Welcome!</h2>
 <div style="text-align: center;">
 <a class="floating-button" href="admin">Admin Page</a>
 <a class="floating-button" href="operator">Operator Page</a>

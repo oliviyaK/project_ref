@@ -18,5 +18,5 @@ public class ClientDTO {
     private String address;
     private String phone;
     private String comment;
-    private List<Request> requestList;
+    private String requestOfClient;
 }

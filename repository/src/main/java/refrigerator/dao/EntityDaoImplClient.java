@@ -11,18 +11,18 @@ public class EntityDaoImplClient extends EntityDaoImpl<Client>{
         super(Client.class);
     }
 
-    public Request searchInRequests (int id) {
-        EntityManager entityManager = HibernateUtil.getEntityManager();
-        Request requestToFind = null;
-        try {
-            entityManager.getTransaction().begin();
-            requestToFind = entityManager.find(Request.class, id);
-            entityManager.getTransaction().rollback();
-        } finally
-            {
-                entityManager.close();
-            }
-            return requestToFind;
-        }
+//    public Request searchInRequests (int id) {
+//        EntityManager entityManager = HibernateUtil.getEntityManager();
+//        Request requestToFind = null;
+//        try {
+//            entityManager.getTransaction().begin();
+//            requestToFind = entityManager.find(Request.class, id);
+//            entityManager.getTransaction().rollback();
+//        } finally
+//            {
+//                entityManager.close();
+//            }
+//            return requestToFind;
+//        }
     }
 

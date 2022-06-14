@@ -61,19 +61,23 @@
     <input name="action" type="hidden" value="update">
     <button class="smallButton">Update</button>
     </form>
-
         <form action="requestForm.jsp">
             <input name="id" type="hidden" value="${client.id}">
             <button class="smallButton">Add request</button>
         </form>
     </td>
-<%--        <td>--%>
-<%--            <form name="info" method="post" action="request">--%>
-<%--                <input name="id" type="hidden" value="${requestList.id}">--%>
-<%--                <button class="smallButton"><a href="requestInfo.jsp?id=${request.id}&date=${request.date}&requestType=${request.requestType}--%>
-<%--                    &client=${request.client}">Инфо</a></button>--%>
-<%--            </form>--%>
-<%--        </td>--%>
+        <td>
+            <form name="info" method="post" action="clientInfo.jsp">
+                <input name="id" type="hidden" value="${client.id}">
+                <input name="name" type="hidden" value="${client.name}">
+                <input name="surname" type="hidden" value="${client.surname}">
+                <input name="address" type="hidden" value="${client.address}">
+                <input name="phone" type="hidden" value="${client.phone}">
+                <input name="comment" type="hidden" value="${client.comment}">
+                <input name="requestOfClient" type="hidden" value="${client.requestOfClient}">
+                <button class="smallButton">Client details</button>
+            </form>
+        </td>
     </tr>
 </c:forEach>
 </table>

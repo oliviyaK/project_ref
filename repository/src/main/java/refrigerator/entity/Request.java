@@ -38,10 +38,9 @@ public class Request implements Serializable {
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(name = "request_refrigerator",
             joinColumns = {@JoinColumn(name = "id_request")},
-            inverseJoinColumns = {@JoinColumn(name = "id_refrigerator")}
-    )
+            inverseJoinColumns = {@JoinColumn(name = "id_refrigerator")})
     @Builder.Default
-    private Set<Refrigerator> refrigerators = new HashSet<>();
+    private Set<Refrigerator> refrigerator = new HashSet<>();
 
 
 }

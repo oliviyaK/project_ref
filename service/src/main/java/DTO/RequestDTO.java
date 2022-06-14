@@ -21,6 +21,6 @@ public class RequestDTO {
     private String requestType;
     private Operation operation;
     private Client client;
-    private Set<Refrigerator> refrigerators = new HashSet<>();
+    private String refrigerator;
 
 }

@@ -1,5 +1,5 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
@@ -27,23 +27,25 @@
 </head>
 <body>
 <div style="text-align: center;">
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Type of request</th>
-<%--        <th>Refrigerator Info</th>--%>
-        <th>Client Info</th>
-    </tr>
-
-    <tr>
-        <td>${param.date}</td>
-        <td>${param.requestType}</td>
-<%--        <td>${param.refrigerator}</td>--%>
-        <td>${param.client}</td>
-    </tr>
-
-</table>
-    <form name="test" action="request">
+    <table>
+        <tr>
+<th>Name</th>
+<th>Surname</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Comment</th>
+<th>Request info</th>
+        </tr>
+        <tr>
+            <td>${param.name}</td>
+            <td>${param.surname}</td>
+            <td>${param.address}</td>
+            <td>${param.phone}</td>
+            <td>${param.comment}</td>
+            <td>${param.requestOfClient}</td>
+        </tr>
+    </table>
+    <form name="test" action="client">
         <button class="floating-button">Back</button>
     </form>
     <form name="test" action="index.jsp">

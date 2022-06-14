@@ -33,7 +33,7 @@
             <th>Date</th>
             <th>Type of request</th>
             <th>Action</th>
-            <th>Client info</th>
+            <th>Request info</th>
         </tr>
         <c:forEach var="request" items="${requests}">
             <tr>
@@ -52,18 +52,26 @@
                         <input name="action" type="hidden" value="update">
                         <button class="smallButton">Update</button>
                     </form>
-
-
-                    <form action="clientForm.jsp">
+                    <form action="addRefrigerator.jsp">
                         <input name="id" type="hidden" value="${request.id}">
-                        <button class="smallButton">Add client</button>
+                        <button class="smallButton">Add refrigerator</button>
                     </form>
                 </td>
                 <td>
-                    <form name="info" method="post" action="request">
+                    <form name="info" method="post" action="requestInfo.jsp">
                         <input name="id" type="hidden" value="${request.id}">
-                        <button><a href="requestInfo.jsp?id=${request.id}&date=${request.date}
-                        &requestType=${request.requestType}&client=${request.client}">Инфо</a></button></form>
+                        <input name="date" type="hidden" value="${request.date}">
+                        <input name="requestType" type="hidden" value="${request.requestType}">
+                        <input name="client" type="hidden" value="${request.client}">
+                        <button class="smallButton">Client details</button>
+                    </form>
+                    <form name="info" method="post" action="refrigeratorInfo.jsp">
+                        <input name="id" type="hidden" value="${request.id}">
+                        <input name="date" type="hidden" value="${request.date}">
+                        <input name="requestType" type="hidden" value="${request.requestType}">
+                        <input name="refrigerator" type="hidden" value="${request.refrigerator}">
+                        <button class="smallButton">Refrigerator details</button>
+                    </form>
                 </td>
             </tr>
         </c:forEach>
@@ -77,6 +85,5 @@
         <button class="floating-button">Main Page</button>
     </form>
 </div>
-
 </body>
 </html>
