@@ -21,4 +21,5 @@ public class RefrigeratorDTO {
     private String comment;
     private List<Detail> detailList;
     private List<Request> requests;
-}
+    private String detailName;
+   }

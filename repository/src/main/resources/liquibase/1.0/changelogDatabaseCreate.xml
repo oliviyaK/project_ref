@@ -47,7 +47,7 @@
             (
                 id              int auto_increment
                     primary key,
-                complete_date   varchar(255) not null,
+                final_date   varchar(255) not null,
                 final_comment   varchar(255) null,
                 operation_price varchar(255) null,
                 request_id      int null,

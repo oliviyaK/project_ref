@@ -1,5 +1,6 @@
 package servlet;
 
+import DTO.RefrigeratorDTO;
 import management.implementation.OperatorServiceImpl;
 import refrigerator.entity.Detail;
 import refrigerator.entity.Refrigerator;
@@ -15,7 +16,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static constants.Constant.*;
-import static constants.Constant.ADD_REFRIGERATORS_TO_REQUEST;
 
 @WebServlet(name = "PartServlet", value = "/part")
 public class PartServlet extends HttpServlet {
@@ -33,8 +33,8 @@ public class PartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter(ACTION);
-        List<Refrigerator> refrigeratorList = partService.findAllRefrigerators();
-        req.setAttribute(REFRIGERATORS,refrigeratorList);
+        List<RefrigeratorDTO> refrigeratorList = partService.findAllRefrigerators();
+        req.setAttribute(REFRIGERATORS, refrigeratorList);
         switch (action) {
             case ADD:
                 savePart(req, resp);
@@ -48,31 +48,35 @@ public class PartServlet extends HttpServlet {
             case ADD_PART_TO_REFRIGERATOR:
                 addPartToRefrigerator(req, resp);
                 break;
-        }}
-        private void savePart (HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
-            String name = req.getParameter(NAME);
-            String price = req.getParameter(PRICE);
-            partService.addDetail(name, price);
-            resp.sendRedirect(PART);
         }
-    private void deletePart (HttpServletRequest req, HttpServletResponse resp)
+    }
+
+    private void savePart(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+        String name = req.getParameter(NAME);
+        String price = req.getParameter(PRICE);
+        partService.addDetail(name, price);
+        resp.sendRedirect(PART);
+    }
+
+    private void deletePart(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         partService.deleteDetail(id);
         resp.sendRedirect(PART);
     }
 
-    private void updatePart (HttpServletRequest req, HttpServletResponse resp)
-            throws IOException{
+    private void updatePart(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         String name = req.getParameter(NAME);
         String price = req.getParameter(PRICE);
         partService.updateDetail(id, name, price);
         resp.sendRedirect(PART);
     }
-    private void addPartToRefrigerator (HttpServletRequest req, HttpServletResponse resp)
-            throws IOException{
+
+    private void addPartToRefrigerator(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
         int id = Integer.parseInt(req.getParameter(ID));
         String name = req.getParameter(NAME);
         String price = req.getParameter(PRICE);

@@ -49,9 +49,9 @@
 
         </ul>
     </li>
-    <li><a class="floating-button" href="detail">Parts<i class="fa fa-angle-down"></i></a>
+    <li><a class="floating-button" href="part">Parts<i class="fa fa-angle-down"></i></a>
         <ul class="submenu">
-            <li><a href="detailForm.jsp">Create a part</a></li>
+            <li><a href="partForm.jsp">Create a part</a></li>
 
         </ul>
     </li>

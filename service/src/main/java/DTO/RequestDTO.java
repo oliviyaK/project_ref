@@ -21,6 +21,7 @@ public class RequestDTO {
     private String requestType;
     private Operation operation;
     private Client client;
-    private String refrigerator;
+    private String refrigeratorBrand;
+    private String refrigeratorModel;
 
 }

@@ -3,8 +3,6 @@ package servlet;
 import DTO.ClientDTO;
 import DTO.RequestDTO;
 import management.implementation.OperatorServiceImpl;
-import refrigerator.entity.Client;
-import refrigerator.entity.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +30,7 @@ public class ClientServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String action = req.getParameter(ACTION);
-        List<Request> requestList = clientService.findAllRequests();
+        List<RequestDTO> requestList = clientService.findAllRequests();
         req.setAttribute(REQUESTS,requestList);
         switch (action) {
             case ADD:

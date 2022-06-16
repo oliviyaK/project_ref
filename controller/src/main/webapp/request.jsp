@@ -62,14 +62,19 @@
                         <input name="id" type="hidden" value="${request.id}">
                         <input name="date" type="hidden" value="${request.date}">
                         <input name="requestType" type="hidden" value="${request.requestType}">
-                        <input name="client" type="hidden" value="${request.client}">
+                        <input name="clientName" type="hidden" value="${request.client.name}">
+                        <input name="clientSurname" type="hidden" value="${request.client.surname}">
+                        <input name="clientAddress" type="hidden" value="${request.client.address}">
+                        <input name="clientPhone" type="hidden" value="${request.client.phone}">
+                        <input name="clientComment" type="hidden" value="${request.client.comment}">
                         <button class="smallButton">Client details</button>
                     </form>
                     <form name="info" method="post" action="refrigeratorInfo.jsp">
                         <input name="id" type="hidden" value="${request.id}">
                         <input name="date" type="hidden" value="${request.date}">
                         <input name="requestType" type="hidden" value="${request.requestType}">
-                        <input name="refrigerator" type="hidden" value="${request.refrigerator}">
+                        <input name="refrigeratorBrand" type="hidden" value="${request.refrigeratorBrand}">
+                        <input name="refrigeratorModel" type="hidden" value="${request.refrigeratorModel}">
                         <button class="smallButton">Refrigerator details</button>
                     </form>
                 </td>

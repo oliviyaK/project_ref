@@ -33,7 +33,6 @@
     <input name="comment" type="text" required placeholder="Комментарий">
   </label><br/></div>
   </div>
-
     <input name="action" type="hidden" value="addRefrigeratorsToRequest">
     <button class="floating-button">Create</button>
     <div style="text-align: center;">

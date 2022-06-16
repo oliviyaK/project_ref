@@ -3,8 +3,6 @@ package servlet;
 import DTO.ClientDTO;
 import DTO.RequestDTO;
 import management.implementation.OperatorServiceImpl;
-import refrigerator.entity.Client;
-import refrigerator.entity.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +21,7 @@ public class RequestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Request> requestList = operatorService.findAllRequests();
+        List<RequestDTO> requestList = operatorService.findAllRequests();
         req.setAttribute(REQUESTS, requestList);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(REQUEST_JSP);
         requestDispatcher.forward(req, resp);

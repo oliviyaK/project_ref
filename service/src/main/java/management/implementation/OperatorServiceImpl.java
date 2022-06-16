@@ -1,6 +1,8 @@
 package management.implementation;
 
 import DTO.ClientDTO;
+import DTO.RefrigeratorDTO;
+import DTO.RequestDTO;
 import management.interfaces.OperatorService;
 import refrigerator.dao.*;
 import refrigerator.entity.*;
@@ -46,10 +48,18 @@ public class OperatorServiceImpl implements OperatorService {
     }
 
     @Override
-    public List<Refrigerator> findAllRefrigerators() {
+    public List<RefrigeratorDTO> findAllRefrigerators() {
         List<Refrigerator> select = daoImplRefrigerator.select();
+        List<RefrigeratorDTO> refrigeratorDTOS = select.stream().map(refrigerator -> RefrigeratorDTO.builder()
+                        .id(refrigerator.getId())
+                        .brand(refrigerator.getBrand())
+                        .model(refrigerator.getModel())
+                        .comment(refrigerator.getComment())
+                        .detailName(refrigerator.getDetailList().stream().map(Detail::getName).collect(Collectors.joining(", ")))
+                        .build())
+                .collect(Collectors.toList());
         daoImplRefrigerator.closeDao();
-        return select;
+        return refrigeratorDTOS;
     }
 
     @Override
@@ -67,8 +77,8 @@ public class OperatorServiceImpl implements OperatorService {
                 .model(model)
                 .comment(comment)
                 .build();
-request.getRefrigerator().add(refrigerator);
-  daoImplRequest.update(request);
+        request.getRefrigerator().add(refrigerator);
+        daoImplRequest.update(request);
         daoImplRequest.closeDao();
     }
 
@@ -157,20 +167,18 @@ request.getRefrigerator().add(refrigerator);
     }
 
     @Override
-    public List<Request> findAllRequests() {
+    public List<RequestDTO> findAllRequests() {
         List<Request> select = daoImplRequest.select();
+        List<RequestDTO> requestDTOS = select.stream().map(request -> RequestDTO.builder()
+                        .id(request.getId())
+                        .date(request.getDate())
+                        .requestType(request.getRequestType())
+                        .refrigeratorBrand(request.getRefrigerator().stream().map(Refrigerator::getBrand).collect(Collectors.joining(", ")))
+                        .refrigeratorModel(request.getRefrigerator().stream().map(Refrigerator::getModel).collect(Collectors.joining(", ")))
+                        .build())
+                .collect(Collectors.toList());
         daoImplRequest.closeDao();
-        return select;
-
-//        List<RequestDTO> requestDTOS = select.stream().map(request -> RequestDTO.builder()
-//                        .id(request.getId())
-//                        .date(request.getDate())
-//                        .requestType(request.getRequestType())
-//                        .refrigerator(request.getRefrigerator().toString())
-//                        .build())
-//                .collect(Collectors.toList());
-//        daoImplRequest.closeDao();
-//        return requestDTOS;
+        return requestDTOS;
     }
 
     @Override
@@ -266,7 +274,8 @@ request.getRefrigerator().add(refrigerator);
                         .phone(client.getPhone())
                         .address(client.getAddress())
                         .comment(client.getComment())
-                        .requestOfClient(client.getRequestOfClient().toString())
+                        .requestOfClientDate(client.getRequestOfClient().stream().map(Request::getDate).collect(Collectors.joining(", ")))
+                        .requestOfClientType(client.getRequestOfClient().stream().map(Request::getRequestType).collect(Collectors.joining(", ")))
                         .build())
                 .collect(Collectors.toList());
         daoImplClient.closeDao();

@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import refrigerator.entity.Operation;
 import refrigerator.entity.Request;
 
-import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,5 +18,7 @@ public class ClientDTO {
     private String address;
     private String phone;
     private String comment;
-    private String requestOfClient;
+    private String requestOfClientDate;
+    private String requestOfClientType;
+    private String operationInfo;
 }

@@ -8,7 +8,7 @@
 <link href="css/create.css" rel="stylesheet">
 <html>
 <head>
-  <title>Refrigerator Details</title>
+    <title>Parts</title>
   <style>
     body {
       margin: 0;
@@ -18,6 +18,7 @@
       background-size: 30px 30px;
       background-position: 0 0, 20px 20px;
     }
+
     p {
       color: #FFF;
       font: 15px Lobster;
@@ -26,26 +27,23 @@
 </head>
 <body>
 <div style="text-align: center;">
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Type of request</th>
-      <th>Refrigerator Info</th>
-    </tr>
-
-    <tr>
-      <td>${param.date}</td>
-      <td>${param.requestType}</td>
-      <td>${param.refrigeratorBrand}<br/>${param.refrigeratorModel}</td>
-    </tr>
-
-  </table>
-  <form name="test" action="request">
-    <button class="floating-button">Back</button>
-  </form>
-  <form name="test" action="index.jsp">
-    <button class="floating-button">Main page</button>
-  </form>
+    <table>
+<tr>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Parts</th>
+</tr>
+        <tr>
+            <td>${param.brand}</td>
+            <td>${param.model}</td>
+            <td>${param.detailName}</td></tr>
+    </table>
+    <form name="test" action="refrigerator">
+        <button class="floating-button">Back</button>
+    </form>
+    <form name="test" action="index.jsp">
+        <button class="floating-button">Main page</button>
+    </form>
 </div>
 </body>
 </html>

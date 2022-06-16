@@ -1,6 +1,8 @@
 package management.interfaces;
 
 import DTO.ClientDTO;
+import DTO.RefrigeratorDTO;
+import DTO.RequestDTO;
 import refrigerator.entity.*;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public interface OperatorService {
 
     void deleteRefrigerator(Integer id);
 
-    List<Refrigerator> findAllRefrigerators();
+    List<RefrigeratorDTO> findAllRefrigerators();
 
     Refrigerator findRefrigeratorById(int id);
 
@@ -48,7 +50,7 @@ public interface OperatorService {
 
     void deleteRequest(Integer id);
 
-    List<Request> findAllRequests();
+    List<RequestDTO> findAllRequests();
 
 //    Request searchInRequests(int id);
 

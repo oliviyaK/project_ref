@@ -18,7 +18,7 @@ public class Operation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "complete_date", nullable = false)
+    @Column(name = "final_date", nullable = false)
     private String date;
 
     @Column(name = "final_comment")

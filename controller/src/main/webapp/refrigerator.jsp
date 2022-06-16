@@ -33,7 +33,8 @@
             <th>Brand</th>
             <th>Model</th>
             <th>Comment</th>
-            <th>Part info</th>
+            <th>Actions</th>
+            <th>Parts Info</th>
         </tr>
         <c:forEach var="refrigerator" items="${refrigerators}">
             <tr>
@@ -54,11 +55,20 @@
                         <input name="action" type="hidden" value="update">
                         <button class="smallButton">Update</button>
                     </form>
-                    <form action="">
+                </td><td>
+                    <form action="addPart.jsp">
                         <input name="id" type="hidden" value="${refrigerator.id}">
                         <button class="smallButton">Add part</button>
                     </form>
-                </td>
+                <form name="info" method="post" action="partInfo.jsp">
+                    <input name="id" type="hidden" value="${refrigerator.id}">
+                    <input name="brand" type="hidden" value="${refrigerator.brand}">
+                    <input name="model" type="hidden" value="${refrigerator.model}">
+                    <input name="detailName" type="hidden" value="${refrigerator.detailName}">
+                    <button class="smallButton">Parts</button>
+                </form>
+
+            </td>
             </tr>
         </c:forEach>
     </table>

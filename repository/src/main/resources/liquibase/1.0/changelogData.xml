@@ -22,7 +22,7 @@
     </changeSet>
     <changeSet id="3" author="Oliviya Kustova" context="test">
         <sql>
-            insert into operations(complete_date, final_comment, operation_price)
+            insert into operations(final_date, final_comment, operation_price)
             values ('27-02-2021', 'Refrigerator compressor replacemen + next time: Thermostat replacement', '150 BYN'),
                    ('28-01-2021', 'Filling the refrigerator with freon + refrigerator compressor replacement',
                     '200 BYN'),

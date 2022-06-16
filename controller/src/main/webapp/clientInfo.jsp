@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
@@ -19,6 +18,7 @@
             background-size: 30px 30px;
             background-position: 0 0, 20px 20px;
         }
+
         p {
             color: #FFF;
             font: 15px Lobster;
@@ -29,21 +29,23 @@
 <div style="text-align: center;">
     <table>
         <tr>
-<th>Name</th>
-<th>Surname</th>
-<th>Address</th>
-<th>Phone</th>
-<th>Comment</th>
-<th>Request info</th>
-        </tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Comment</th>
+            <th>Request date</th>
+            <th>Request type</th>
+               </tr>
         <tr>
             <td>${param.name}</td>
             <td>${param.surname}</td>
             <td>${param.address}</td>
             <td>${param.phone}</td>
             <td>${param.comment}</td>
-            <td>${param.requestOfClient}</td>
-        </tr>
+            <td>${param.requestOfClientDate}<br/></td>
+            <td>${param.requestOfClientType}</td>
+                   </tr>
     </table>
     <form name="test" action="client">
         <button class="floating-button">Back</button>

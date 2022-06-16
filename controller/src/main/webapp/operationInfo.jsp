@@ -8,7 +8,7 @@
 <link href="css/create.css" rel="stylesheet">
 <html>
 <head>
-    <title>Client Details</title>
+    <title>Operation details</title>
     <style>
         body {
             margin: 0;
@@ -18,7 +18,6 @@
             background-size: 30px 30px;
             background-position: 0 0, 20px 20px;
         }
-
         p {
             color: #FFF;
             font: 15px Lobster;
@@ -29,20 +28,26 @@
 <div style="text-align: center;">
     <table>
         <tr>
-            <th>Date</th>
-            <th>Type of request</th>
-            <th>Client Info</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Comment</th>
+            <th>Final date</th>
+            <th>Final comment</th>
+            <th>Final price</th>
         </tr>
-
         <tr>
-            <td>${param.date}</td>
-            <td>${param.requestType}</td>
-            <td>${param.clientName} ${param.clientSurname} <br/>${param.clientAddress}<br/>
-                ${param.clientPhone} <br/>${param.clientComment}</td>
+            <td>${param.name}</td>
+            <td>${param.surname}</td>
+            <td>${param.address}</td>
+            <td>${param.phone}</td>
+            <td>${param.comment}</td>
+            <td>${param.}<br/></td>
+            <td>${param.}</td>
         </tr>
-
     </table>
-    <form name="test" action="request">
+    <form name="test" action="client">
         <button class="floating-button">Back</button>
     </form>
     <form name="test" action="index.jsp">

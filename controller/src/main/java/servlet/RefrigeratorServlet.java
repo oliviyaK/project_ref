@@ -1,8 +1,8 @@
 package servlet;
 
+import DTO.RefrigeratorDTO;
+import DTO.RequestDTO;
 import management.implementation.OperatorServiceImpl;
-import refrigerator.entity.Refrigerator;
-import refrigerator.entity.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class RefrigeratorServlet extends HttpServlet {
     private final OperatorServiceImpl refrigeratorService = new OperatorServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Refrigerator> refrigeratorList = refrigeratorService.findAllRefrigerators();
+        List<RefrigeratorDTO> refrigeratorList = refrigeratorService.findAllRefrigerators();
         req.setAttribute(REFRIGERATORS, refrigeratorList);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(REFRIGERATOR_JSP);
         requestDispatcher.forward(req, resp);
@@ -29,7 +29,7 @@ public class RefrigeratorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter(ACTION);
-        List<Request> requestList = refrigeratorService.findAllRequests();
+        List<RequestDTO> requestList = refrigeratorService.findAllRequests();
         req.setAttribute(REQUESTS,requestList);
         switch (action) {
             case ADD:
