@@ -36,6 +36,7 @@
             <th>Comment</th>
             <th>Request date</th>
             <th>Request type</th>
+            <th>Operation type</th>
                </tr>
         <tr>
             <td>${param.name}</td>
@@ -45,7 +46,7 @@
             <td>${param.comment}</td>
             <td>${param.requestOfClientDate}<br/></td>
             <td>${param.requestOfClientType}</td>
-                   </tr>
+        </tr>
     </table>
     <form name="test" action="client">
         <button class="floating-button">Back</button>

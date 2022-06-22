@@ -63,6 +63,10 @@ public class Manager {
         operation3.setRequest(daoImplRequest.selectById(3));
         daoImplOperation.update(operation3);
 
+        operation1.setClient(daoImplClient.selectById(1));
+        daoImplOperation.update(operation1);
+
+
 
         EntityDaoImplDetail daoImplDetail = new EntityDaoImplDetail();
         daoImplDetail.insert(detail1);

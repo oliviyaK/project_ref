@@ -31,4 +31,9 @@ public class Operation implements Serializable {
     @JoinColumn(name = "request_id")
     @ToString.Exclude
     private Request request;
+
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    @ToString.Exclude
+    private Client client;
 }

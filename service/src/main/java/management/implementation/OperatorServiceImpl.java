@@ -175,6 +175,7 @@ public class OperatorServiceImpl implements OperatorService {
                         .requestType(request.getRequestType())
                         .refrigeratorBrand(request.getRefrigerator().stream().map(Refrigerator::getBrand).collect(Collectors.joining(", ")))
                         .refrigeratorModel(request.getRefrigerator().stream().map(Refrigerator::getModel).collect(Collectors.joining(", ")))
+//                        .operationOfClient(request.getOperation().stream().map(Operation::getDate).collect(Collectors.joining(", ")))
                         .build())
                 .collect(Collectors.toList());
         daoImplRequest.closeDao();

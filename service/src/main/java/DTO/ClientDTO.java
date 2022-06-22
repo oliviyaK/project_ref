@@ -20,5 +20,4 @@ public class ClientDTO {
     private String comment;
     private String requestOfClientDate;
     private String requestOfClientType;
-    private String operationInfo;
 }

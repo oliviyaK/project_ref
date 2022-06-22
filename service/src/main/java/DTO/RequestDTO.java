@@ -19,7 +19,7 @@ public class RequestDTO {
     private int id;
     private String date;
     private String requestType;
-    private Operation operation;
+    private String operationOfClient;
     private Client client;
     private String refrigeratorBrand;
     private String refrigeratorModel;

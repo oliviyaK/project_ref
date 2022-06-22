@@ -41,4 +41,9 @@ public class Client implements Serializable {
     @Builder.Default
     private List<Request> requestOfClient = new ArrayList<>();
 
+    @OneToMany(mappedBy = "client")
+    @ToString.Exclude
+    @Builder.Default
+    private List<Operation> operation = new ArrayList<>();
+
 }

@@ -6,6 +6,7 @@
 <link href="css/table.css" rel="stylesheet">
 <link href="css/create.css" rel="stylesheet">
 <link href="css/button.css" rel="stylesheet">
+<link href="css/menu.css" rel="stylesheet">
 <html>
 <head>
     <title>Clients</title>
@@ -27,9 +28,39 @@
 </style>
 <body>
 <div style="text-align: center;">
-
+    <nav class="one">
+        <ul class="topmenu">
+            <li><a class="floating-button" href="client">Clients<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="clientForm.jsp">Create a client</a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="request">Requests<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="requestForm.jsp">Create a request</a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="operation">Operations<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="operationForm.jsp">Create operation</a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="refrigerator">Refrigerators<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="refrigeratorForm.jsp">Create refrigerator</a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="part">Parts<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="partForm.jsp">Create a part</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div style="text-align: center;">
     <table>
         <caption>Your clients</caption>
+
         <tr>
             <th>Name</th>
             <th>Surname</th>
@@ -38,7 +69,6 @@
             <th>Comment</th>
             <th>Action</th>
             <th>Request info</th>
-            <th>Operation info</th>
         </tr>
         <c:forEach var="client" items="${clients}">
             <tr>
@@ -80,7 +110,6 @@
                         <input name="requestOfClientType" type="hidden" value="${client.requestOfClientType}">
                         <button class="smallButton">Request details</button>
                     </form>
-
                 </td>
             </tr>
         </c:forEach>

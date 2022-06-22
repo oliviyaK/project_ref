@@ -1,6 +1,7 @@
 table {
+    margin: auto;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    text-align: left;
+    text-align: center;
     border-collapse: separate;
     border-spacing: 5px;
     background: #ECE9E0;
