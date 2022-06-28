@@ -3,8 +3,6 @@ package servlet;
 import DTO.RefrigeratorDTO;
 import management.implementation.OperatorServiceImpl;
 import refrigerator.entity.Detail;
-import refrigerator.entity.Refrigerator;
-import refrigerator.entity.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +29,7 @@ public class PartServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String action = req.getParameter(ACTION);
         List<RefrigeratorDTO> refrigeratorList = partService.findAllRefrigerators();
         req.setAttribute(REFRIGERATORS, refrigeratorList);

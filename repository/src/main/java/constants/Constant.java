@@ -52,4 +52,5 @@ public class Constant {
 
     public static final String OPERATION_COMMENT_2 = "+ next time: Thermostat replacement";
 
+
 }

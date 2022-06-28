@@ -90,5 +90,6 @@ public class Constant {
     public static final String DEFAULT_CHARACTER_ENCODING = "UTF-8";
     public static final String CLIENTS = "clients";
     public static final String REQUEST = "request";
+    public static final String CLIENT_DELETE_ERROR = "clientDeleteError";
 
 }
